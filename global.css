@@ -1,0 +1,44 @@
+/* css/global.css */
+:root {
+    --cream: #f5eee9;
+    --gold: #d9b9a3;
+    --earth: #4a3f36;
+    --green: #000;
+    --text-dark: #2b2b2b;
+    --text-light: #fff;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Georgia', serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.6;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--green);
+  }
+  
+  a:hover {
+    color: var(--earth);
+  }
+  
+  .divider-line {
+    height: 2px;
+    background: var(--earth);
+    width: 80%;
+    margin: 3rem auto;
+  }
+  
+  .btn {
+    background-color: var(--gold);
+    color: var(--text-dark);
+    padding: 0.75rem 1.5rem;
+    border-radius: 30px;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 1rem;
+  }
+  

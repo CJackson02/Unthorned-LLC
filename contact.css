@@ -1,0 +1,281 @@
+/* =========================
+   Navigation Bar Styling
+   ========================= */
+.navbar {
+  background-color: rgba(245, 238, 233, 0.95);
+  padding: 0.75rem 2rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  width: 100%;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #4a3f36;
+}
+
+.logo span {
+  font-weight: normal;
+  color: #607d3b;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #607d3b;
+  font-size: 1.1rem;
+  font-weight: 500;
+  position: relative;
+}
+
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  background-color: #607d3b;
+  bottom: -4px;
+  left: 0;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
+/* =========================
+   Contact Page Styles
+   Palette (Unthorned):
+   --cream: #f5eee9;
+   --tan: #d9b9a3;
+   --rose: #caa88c;
+   --brown: #4a3f36;
+   --charcoal: #2b2b2b;
+   ========================= */
+:root{
+  --cream:#f5eee9;
+  --tan:#d9b9a3;
+  --rose:#caa88c;
+  --brown:#4a3f36;
+  --charcoal:#2b2b2b;
+}
+
+body {
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.container{
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
+
+/* ===== Hero ===== */
+.contact-hero{
+  background: linear-gradient(180deg, var(--cream), var(--tan));
+  padding: 4rem 0 3rem;
+  text-align:center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-hero h1{
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.5rem;
+}
+
+.contact-hero p{
+  margin: 0;
+  color: #4b4b4b;
+}
+
+/* ===== Layout (Info | Form) ===== */
+.contact-layout{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding: 2rem 0 3rem;
+}
+
+@media (min-width: 900px){
+  .contact-layout{
+    grid-template-columns: 0.9fr 1.1fr; /* details | form */
+    gap: 2rem;
+  }
+}
+
+/* ===== Cards ===== */
+.contact-card, .form-card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 1.25rem 1.25rem 1.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.contact-card h2,
+.form-card h2{
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.25rem;
+  margin: 0 0 0.75rem;
+  color: var(--brown);
+}
+
+/* ===== Details ===== */
+.contact-item + .contact-item{ margin-top: 0.75rem; }
+
+.contact-item h3{
+  font-size: 0.95rem;
+  margin: 0 0 0.2rem;
+  color: var(--charcoal);
+  font-weight: 600;
+}
+
+.contact-item p{
+  margin: 0;
+  line-height: 1.5;
+}
+
+.social-links a{
+  text-decoration: none;
+  border-bottom: 1px dotted rgba(0,0,0,0.25);
+}
+
+.social-links .dot{
+  margin: 0 0.4rem;
+  opacity: 0.5;
+}
+
+/* ===== Form ===== */
+.form-grid{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.8rem;
+  margin: 0.75rem 0 1rem;
+}
+
+.field label{
+  display: block;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.field input,
+.field textarea{
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 10px;
+  background: #fff;
+  outline: none;
+  transition: box-shadow .2s ease, border-color .2s ease;
+}
+
+.field input:focus,
+.field textarea:focus{
+  border-color: var(--brown);
+  box-shadow: 0 0 0 4px rgba(74,63,54,0.08);
+}
+
+.field.full{ grid-column: 1 / -1; }
+
+@media (min-width: 640px){
+  .form-grid{
+    grid-template-columns: 1fr 1fr;
+  }
+  .field.full{
+    grid-column: 1 / 3;
+  }
+}
+
+/* ===== Button ===== */
+.btn{
+  display: inline-block;
+  padding: 0.85rem 1.25rem;
+  border-radius: 12px;
+  border: 1px solid var(--brown);
+  background: var(--brown);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .08s ease, filter .2s ease;
+  cursor: pointer;
+}
+
+.btn:hover{ filter: brightness(1.05); }
+.btn:active{ transform: translateY(1px); }
+
+.form-note{
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: #5a5a5a;
+}
+
+/* ===== About + Terms ===== */
+.about-terms{
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  padding-bottom: 2.5rem;
+}
+
+.about-terms h2, .about-terms h3{
+  font-family: "Poppins", system-ui, sans-serif;
+  color: var(--brown);
+}
+
+@media (min-width: 900px){
+  .about-terms{
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 2rem;
+  }
+}
+
+/* ===== Links ===== */
+a{ color: var(--brown); }
+a:hover{ opacity: 0.9; }
+
+/* ===== Footer spacing above ===== */
+.footer{ margin-top: 1rem; }
+
+/* ===== Form status & states ===== */
+.status{
+  margin-top: 0.6rem;
+  font-size: 0.95rem;
+}
+
+.status.success{ color: #2e7d32; }  /* subtle green */
+.status.error{ color: #b00020; }    /* subtle red */
+
+.btn[disabled]{
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Honeypot field (hide from users) */
+.hp-field{
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}

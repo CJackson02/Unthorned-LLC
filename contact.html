@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact - Unthorned LLC</title>
+  <link rel="stylesheet" href="css/contact.css" />
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/dimensions.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Unthorned <span>LLC</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contact: Hero -->
+  <header class="contact-hero">
+    <div class="container">
+      <h1>Get in Touch</h1>
+      <p>We’re here to help guide and support you. Let’s connect.</p>
+    </div>
+  </header>
+
+  <!-- Contact: Layout (Form + Details) -->
+  <main class="contact-layout container" role="main">
+    <!-- Details Card -->
+    <section class="contact-card" aria-labelledby="contact-details-title">
+      <h2 id="contact-details-title">Business Information</h2>
+      <div class="contact-item">
+        <h3>Address</h3>
+        <p>4400 State Hwy 121, Suite 300<br>Lewisville, TX 75056</p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Email</h3>
+        <p><a href="mailto:info@unthornedllc.com">info@unthornedllc.com</a></p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Phone</h3>
+        <p>
+          <a href="tel:4302523971">(430) 252‑3971</a><br>
+          <a href="tel:8889697297">(888) 969‑7297</a>
+        </p>
+      </div>
+
+      <div class="contact-item">
+        <h3>Social</h3>
+        <p class="social-links">
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <span class="dot">•</span>
+          <a href="#" aria-label="TikTok">TikTok</a>
+          <span class="dot">•</span>
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Form Card -->
+    <section class="form-card" aria-labelledby="contact-form-title">
+      <h2 id="contact-form-title">Send us a message</h2>
+      <form id="contact-form" action="#" method="POST" novalidate>
+        <input type="text" name="company" id="company" autocomplete="off" tabindex="-1" aria-hidden="true" class="hp-field">
+        <div class="form-grid">
+          <div class="field">
+            <label for="name">Name<span aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+          </div>
+
+          <div class="field">
+            <label for="email">Email<span aria-hidden="true">*</span></label>
+            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="field full">
+            <label for="message">Message<span aria-hidden="true">*</span></label>
+            <textarea id="message" name="message" rows="6" placeholder="How can we help?" required></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="btn">Send Message</button>
+        <p id="form-status" class="status" aria-live="polite"></p>
+
+        <p class="form-note" role="note">By submitting, you agree to our
+          <a href="terms.html">Terms of Use</a>.
+        </p>
+      </form>
+    </section>
+  </main>
+
+  <!-- About + Terms -->
+  <section class="about-terms container">
+    <div class="about">
+      <h2>About Unthorned</h2>
+      <p>Unthorned, LLC is a purpose‑driven coaching and consulting studio dedicated to empowering young women (ages 13–18) to build confidence, leadership, and self‑worth. We offer personalized life‑coaching sessions, beginner‑friendly makeup and personal‑care workshops, and optional faith‑inspired development programs designed to promote emotional resilience and positive self‑image.</p>
+      <p>Whether you’re looking for one‑on‑one mentorship, group workshops, or tailored consulting, Unthorned provides a supportive, values‑based environment where every student can flourish.</p>
+    </div>
+
+    <div class="terms">
+      <h3>Terms of Use</h3>
+      <p>Please review our <a href="terms.html">Terms of Use</a> for important information about our services, disclaimers, and privacy expectations.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="img/unthorned_logo.jpg" alt="Unthorned Logo">
+      </div>
+
+      <div class="footer-info">
+        <p>© 2025 Unthorned LLC. All rights reserved.</p>
+        <p>Phone: (888) 969‑7297</p>
+        <p>Email: info@unthornedllc.com</p>
+      </div>
+    </div>
+  </footer>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+  (function () {
+    // ====== CONFIG: EmailJS ======
+    // Replace these with your real keys from EmailJS dashboard
+    const EMAILJS_PUBLIC_KEY = "YOUR_PUBLIC_KEY_HERE";
+    const EMAILJS_SERVICE_ID = "YOUR_SERVICE_ID_HERE";
+    const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID_HERE";
+
+    // ====== CONFIG: PHP fallback endpoint ======
+    const FALLBACK_ENDPOINT = "/api/contact.php"; // adjust if you place the PHP file elsewhere
+
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    const form = document.getElementById('contact-form');
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = form.querySelector('button[type="submit"]');
+
+    async function sendViaEmailJS() {
+      const templateParams = {
+        from_name: form.name.value,
+        reply_to: form.email.value,
+        message: form.message.value,
+        page_url: window.location.href
+      };
+      return emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams);
+    }
+
+    async function sendViaPHP() {
+      const payload = {
+        name: form.name.value,
+        email: form.email.value,
+        message: form.message.value,
+        page_url: window.location.href
+      };
+
+      const res = await fetch(FALLBACK_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error("Fallback request failed");
+      return res.json();
+    }
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      // Honeypot anti-spam (if filled, silently abort)
+      if (form.company && form.company.value) return;
+
+      // Basic required validation
+      if (!form.name.value || !form.email.value || !form.message.value) {
+        statusEl.textContent = 'Please complete all required fields.';
+        statusEl.className = 'status error';
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Sending…';
+      statusEl.textContent = '';
+      statusEl.className = 'status';
+
+      try {
+        // Try EmailJS first
+        await sendViaEmailJS();
+
+        form.reset();
+        statusEl.textContent = 'Thanks! Your message has been sent.';
+        statusEl.className = 'status success';
+      } catch (ejserr) {
+        console.warn("EmailJS error, attempting PHP fallback:", ejserr);
+        try {
+          await sendViaPHP();
+          form.reset();
+          statusEl.textContent = 'Thanks! Your message has been sent.';
+          statusEl.className = 'status success';
+        } catch (phperr) {
+          console.error(phperr);
+          statusEl.textContent = 'Sorry, we could not send your message. Please email info@unthornedllc.com.';
+          statusEl.className = 'status error';
+        }
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Send Message';
+      }
+    });
+  })();
+</script>
+</body>
+</html>
