@@ -1,0 +1,46 @@
+
+.footer {
+  background-color: #d9b9a3; /* warm tan from your palette */
+  color: #2b2b2b; /* deep brown text */
+  font-family: "Poppins", sans-serif;
+  padding: 2rem 1rem;
+  border-top: 2px solid #4a3f36;
+}
+
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+.footer-logo img {
+  width: 70px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.footer-info p {
+  margin: 0.2rem 0;
+  font-size: 0.95rem;
+}
+
+.footer-info p:first-child {
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2.5rem;
+    text-align: left;
+  }
+
+  .footer-logo img {
+    margin-right: 1rem;
+  }
+}

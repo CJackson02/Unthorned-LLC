@@ -1,0 +1,91 @@
+/* floral.css — Rose & Vine Embellishments */
+
+.logo-title-container {
+  position: relative;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 2rem;
+}
+
+.logo-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3rem;
+  color: #4a3f36;
+  position: relative;
+  z-index: 2;
+}
+
+.vine-animation {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 220px;
+  height: 220px;
+  transform: translate(-50%, -50%);
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-image: url('../img/vine-frame.png'); /* Make sure to place a floral vine image here */
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.9;
+  animation: swirlVine 15s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+@keyframes swirlVine {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1.05);
+  }
+}
+
+
+/* Hero Background Rose */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 160px;
+    height: 160px;
+    background: url('../img/rose-vine-large.png') no-repeat center/contain;
+    opacity: 0.15;
+    z-index: 0;
+  }
+  
+  /* Subtle Vine on Footer */
+  footer::before {
+    content: "";
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    width: 100px;
+    height: 100px;
+    background: url('../img/rose-vine-small.png') no-repeat center/contain;
+    opacity: 0.08;
+    z-index: 0;
+  }
+  
+  /* Decorative vine on each section */
+  section::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background: url('../img/vine-accent.png') no-repeat center/contain;
+    opacity: 0.05;
+    z-index: 0;
+  }
+  
+  /* Ensure stacking context doesn't interfere */
+  .hero-section,
+  footer,
+  section {
+    position: relative;
+    z-index: 1;
+  }
+  

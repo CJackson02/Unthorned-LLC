@@ -1,0 +1,36 @@
+/* Main Vine Background for Home Page */
+.rosevine-hero {
+    background-image: url('../img/hero-vine.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center bottom;
+    background-blend-mode: multiply;
+  }
+  
+  /* Accent Vine Decoration for Section Corners */
+  .section-with-vine::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('../img/vine-left.png') no-repeat;
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.25;
+    z-index: 0;
+  }
+  
+  .section-with-vine::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background: url('../img/vine-right.png') no-repeat;
+    background-size: 150px;
+    width: 150px;
+    height: 150px;
+    opacity: 0.25;
+    z-index: 0;
+  }
+  
